@@ -40,7 +40,7 @@ public class Main extends Application {
         Button sarvesh = new Button("Sudoku Solver/Generator");
         Button aayush = new Button( "Tic-Tac-Toe");
         Button darshil = new Button("Snake");
-        Button muzib = new Button(  "T E T R I S");
+        Button muzib = new Button(  "Destroy'em All");
         /** Style for the button.*/
         muzib.setPrefSize(250, 40);
         darshil.setPrefSize(250, 40);

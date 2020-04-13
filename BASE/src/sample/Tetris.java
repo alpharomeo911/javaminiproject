@@ -19,19 +19,19 @@ import javafx.stage.Stage;
 
 public class Tetris extends Application {
     // The variables
-    public static int MOVE = 25;
-    public static int SIZE = 25;
-    public static int XMAX = SIZE * 12;
-    public static int YMAX = SIZE * 24;
-    public static int[][] MESH = new int[XMAX / SIZE][YMAX / SIZE];
-    private static Pane group = new Pane();
+    public static int MOVE;
+    public static int SIZE;
+    public static int XMAX;
+    public static int YMAX;
+    public static int[][] MESH;
+    private static Pane group;
     private static Form object;
-    private static Scene scene = new Scene(group, XMAX + 150, YMAX);
-    public static int score = 0;
-    private static int top = 0;
-    private static boolean game = true;
-    private static Form nextObj = Controller.makeRect();
-    private static int linesNo = 0;
+    private static Scene scene;
+    public static int score;
+    private static int top;
+    private static boolean game;
+    private static Form nextObj;
+    private static int linesNo;
 
     public static void main(String[] args) {
         launch(args);
@@ -39,6 +39,18 @@ public class Tetris extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        MOVE = 25;
+        SIZE = 25;
+        XMAX = SIZE * 12;
+        YMAX = SIZE * 24;
+        MESH = new int[XMAX / SIZE][YMAX / SIZE];
+        group = new Pane();
+        scene = new Scene(group, XMAX + 150, YMAX);
+        score = 0;
+        top = 0;
+        game = true;
+        nextObj = Controller.makeRect();
+        linesNo = 0;
         for (int[] a : MESH) {
             Arrays.fill(a, 0);
         }
@@ -89,18 +101,6 @@ public class Tetris extends Application {
                         // Exit
                         if (top == 15) {
                             try {
-                                MOVE = 25;
-                                SIZE = 25;
-                                XMAX = SIZE * 12;
-                                YMAX = SIZE * 24;
-                                MESH = new int[XMAX / SIZE][YMAX / SIZE];
-                                group = new Pane();
-                                scene = new Scene(group, XMAX + 150, YMAX);
-                                score = 0;
-                                top = 0;
-                                game = true;
-                                nextObj = Controller.makeRect();
-                                linesNo = 0;
                                 Main main = new Main();
                                 main.start(stage);
                             } catch (Exception e) {
